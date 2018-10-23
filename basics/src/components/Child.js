@@ -8,6 +8,7 @@ export default class Child extends React.Component {
         });
     };
     constructor(props) {
+        console.log("constructor");
         super(props);
         this.state = {
             age: props.age,
@@ -17,7 +18,29 @@ export default class Child extends React.Component {
         };
     }
     componentWillMount() {
-        console.log(this.props);
+        console.log("componentWillMount");
+    }
+    componentDidMount() {
+        console.log("componentDidMount");
+    }
+    componentWillReceiveProps(nextProps) {
+        console.log("componentWillReceiveProps");
+        console.log(nextProps);
+    }
+    shouldComponentUpdate() {
+        console.log("shouldComponentUpdate");
+        return true;
+    }
+    componentWillUpdate(nextProps, nextState) {
+        console.log("componentWillUpdate");
+        console.log(nextProps, nextState);
+    }
+    componentDidUpdate(prevProps, prevState) {
+        console.log("componentDidUpdate");
+        console.log(prevProps, prevState);
+    }
+    componentWillUnmount() {
+        console.log("componentWillUnmount");
     }
     putIn(event) {
         this.setState({
@@ -41,6 +64,7 @@ export default class Child extends React.Component {
         this.props.greet("(⊙ˍ⊙)");
     }
     render() {
+        console.log("render");
         return (
             <div>
                 info: {this.props.name} | {this.state.age}

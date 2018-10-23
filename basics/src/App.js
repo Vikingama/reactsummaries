@@ -46,16 +46,13 @@ export default class App extends Component {
             food: v
         });
     }
-    handleClick() {
-        console.log(this);
-    }
     render() {
         const user = {
             name: "Anna",
             hobbies: ["drink", "cook"]
         };
         return (
-            <div className="App" onClick={this.handleClick.bind(this)}>
+            <div className="App">
                 {/* 同级组件通过父级组件进行通信 */}
                 <Title eat={this.state.food} />
                 <hr />
