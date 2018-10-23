@@ -17,7 +17,8 @@ export default class JSPang extends Component {
     render() {
         return (
             <div>
-                JSPang
+                <span>JSPang</span>
+                <br/>
                 {/* 在 MemoryRouter 模式下，将不起作用；when 相当于开关，决定 Prompt 是否生效... */}
                 <Prompt message="确定离开此页面？" when={this.state.power} />
                 <button onClick={this.handleClick}>切换提示效果</button>

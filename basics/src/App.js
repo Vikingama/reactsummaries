@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Child from "./components/Child";
 
 class Title extends Component {
     constructor() {
@@ -25,9 +26,18 @@ export default class App extends Component {
         console.log(this);
     }
     render() {
+        const user = {
+            name: "Anna",
+            hobbies: ["drink", "cook"]
+        };
         return (
             <div className="App" onClick={this.handleClick.bind(this)}>
                 <Title />
+                <br />
+                <Child name={"rails365"} age={30} hobbies={user.hobbies}>
+                    {/* 父元素向 Child 传入一个子节点 span 标签 */}
+                    <span>I am Anna's brother...</span>
+                </Child>
             </div>
         );
     }
