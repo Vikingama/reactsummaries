@@ -17,11 +17,35 @@ class Title extends Component {
     };
     render() {
         // 箭头函数不需要绑定 this...
-        return <span onClick={this.handleClick}>i'm title...</span>;
+        return (
+            <span onClick={this.handleClick}>
+                i'm title, eat&nbsp;
+                {this.props.eat}
+                ...
+            </span>
+        );
     }
 }
 
 export default class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            facial: "(⊙ˍ⊙)",
+            food: "noddle",
+            inputValue: "6dsgfd8g7dsf"
+        };
+    }
+    onGreet(v) {
+        this.setState({
+            facial: this.state.facial + v
+        });
+    }
+    onChangeFood(v) {
+        this.setState({
+            food: v
+        });
+    }
     handleClick() {
         console.log(this);
     }
@@ -32,12 +56,28 @@ export default class App extends Component {
         };
         return (
             <div className="App" onClick={this.handleClick.bind(this)}>
-                <Title />
-                <br />
-                <Child name={"rails365"} age={30} hobbies={user.hobbies}>
+                {/* 同级组件通过父级组件进行通信 */}
+                <Title eat={this.state.food} />
+                <hr />
+                <Child
+                    name={"rails365"}
+                    age={30}
+                    hobbies={user.hobbies}
+                    greet={this.onGreet.bind(this)}
+                    changeFood={this.onChangeFood.bind(this)}
+                    inputValue={this.state.inputValue}
+                >
                     {/* 父元素向 Child 传入一个子节点 span 标签 */}
                     <span>I am Anna's brother...</span>
                 </Child>
+                <br />
+                <span
+                    style={{
+                        border: "1px dashed black"
+                    }}
+                >
+                    {this.state.facial}
+                </span>
             </div>
         );
     }
