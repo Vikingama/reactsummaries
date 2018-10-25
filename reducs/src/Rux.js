@@ -1,25 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { increament, decreament } from "./actions";
 
-class Rrx extends React.Component {
+class Rux extends React.Component {
     render() {
-        const { dispatch } = this.props;
+        const { increament, decreament } = this.props;
         return (
             <div className="container">
                 <h1 className="junbotron-heading text-center">
-                    Rrx|{this.props.counter}
+                    Rux|
+                    {this.props.counter}
                 </h1>
                 <p className="text-center">
                     <button
                         className="btn btn-primary mr-2"
-                        onClick={() => dispatch({ type: "INCREASE" })}
+                        onClick={increament}
                     >
                         Increase
                     </button>
                     <button
                         className="btn btn-danger my-2"
-                        onClick={() => dispatch({ type: "DECREASE" })}
+                        onClick={decreament}
                     >
                         Decrease
                     </button>
@@ -35,8 +37,16 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(Rrx);
+export default connect(
+    mapStateToProps,
+    {
+        increament,
+        decreament
+    }
+)(Rux);
 
-Rrx.propTypes = {
-    counter: PropTypes.number.isRequired
+Rux.propTypes = {
+    counter: PropTypes.number.isRequired,
+    increament: PropTypes.func.isRequired,
+    decreament: PropTypes.func.isRequired
 };

@@ -6,7 +6,7 @@ class App extends Component {
         return (
             <div className="container">
                 <h1 className="junbotron-heading text-center">
-                    {this.props.value.counter}
+                    App|{this.props.value.counter}
                 </h1>
                 <p className="text-center">
                     <button

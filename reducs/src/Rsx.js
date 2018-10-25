@@ -2,24 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-class Rrx extends React.Component {
+class Rsx extends React.Component {
     render() {
-        const { dispatch } = this.props;
         return (
             <div className="container">
                 <h1 className="junbotron-heading text-center">
-                    Rrx|{this.props.counter}
+                   Rsx|{this.props.counter}
                 </h1>
                 <p className="text-center">
                     <button
                         className="btn btn-primary mr-2"
-                        onClick={() => dispatch({ type: "INCREASE" })}
+                        onClick={this.props.increase}
                     >
                         Increase
                     </button>
                     <button
                         className="btn btn-danger my-2"
-                        onClick={() => dispatch({ type: "DECREASE" })}
+                        onClick={this.props.decrease}
                     >
                         Decrease
                     </button>
@@ -30,13 +29,28 @@ class Rrx extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {
-        counter: state.counter
+        return {
+            counter: state.counter
+        };
+    },
+    mapDispatchToProps = dispatch => {
+        return {
+            increase: () => {
+                dispatch({ type: "INCREASE" });
+            },
+            decrease: () => {
+                dispatch({ type: "DECREASE" });
+            }
+        };
     };
-};
 
-export default connect(mapStateToProps)(Rrx);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Rsx);
 
-Rrx.propTypes = {
-    counter: PropTypes.number.isRequired
+Rsx.propTypes = {
+    counter: PropTypes.number.isRequired,
+    increase:PropTypes.func.isRequired,
+    decrease:PropTypes.func.isRequired,
 };

@@ -1,4 +1,4 @@
-import { INCREASE, DECREASE } from "./../contants/index";
+import { INCREASE, DECREASE } from "./../contants";
 
 export const increament = () => {
     return {
