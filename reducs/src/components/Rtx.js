@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { increament, decreament } from "./actions";
+import * as types from "./../actions";
 
 class Rtx extends React.Component {
     render() {
@@ -15,13 +15,13 @@ class Rtx extends React.Component {
                 <p className="text-center">
                     <button
                         className="btn btn-primary mr-2"
-                        onClick={this.props.increase}
+                        onClick={this.props.increament}
                     >
                         Increase
                     </button>
                     <button
                         className="btn btn-danger my-2"
-                        onClick={this.props.decrease}
+                        onClick={this.props.decreament}
                     >
                         Decrease
                     </button>
@@ -37,10 +37,7 @@ const mapStateToProps = state => {
         };
     },
     mapDispatchToProps = dispatch => {
-        return {
-            increase: bindActionCreators(increament, dispatch),
-            decrease: bindActionCreators(decreament, dispatch)
-        };
+        return bindActionCreators(types, dispatch);
     };
 
 export default connect(
@@ -50,6 +47,6 @@ export default connect(
 
 Rtx.propTypes = {
     counter: PropTypes.number.isRequired,
-    increase: PropTypes.func.isRequired,
-    decrease: PropTypes.func.isRequired
+    increament: PropTypes.func.isRequired,
+    decreament: PropTypes.func.isRequired
 };

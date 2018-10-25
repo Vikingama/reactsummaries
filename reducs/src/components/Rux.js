@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { increament, decreament } from "./actions";
+import { increament, decreament } from "./../actions";
 
 class Rux extends React.Component {
     render() {
