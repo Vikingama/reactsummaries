@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { increament, decreament } from "./../actions";
+import { increament, decreament, puzzle } from "./../actions";
 
 class Rux extends React.Component {
     render() {
-        const { increament, decreament } = this.props;
+        const { increament, decreament, puzzle } = this.props;
         return (
             <div className="container">
                 <h1 className="junbotron-heading text-center">
@@ -18,6 +18,9 @@ class Rux extends React.Component {
                         onClick={increament}
                     >
                         Increase
+                    </button>
+                    <button className="btn btn-success mr-2" onClick={puzzle}>
+                        Puzzle
                     </button>
                     <button
                         className="btn btn-danger my-2"
@@ -41,7 +44,8 @@ export default connect(
     mapStateToProps,
     {
         increament,
-        decreament
+        decreament,
+        puzzle
     }
 )(Rux);
 

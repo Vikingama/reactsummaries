@@ -1,5 +1,12 @@
-const user = () => (state = "rails", action = {}) => {
+const user = (
+    state = {
+        email: "example@example.com"
+    },
+    action = {}
+) => {
     switch (action.type) {
+        case "FETCHINFO":
+            return action.info;
         default:
             return state;
     }
