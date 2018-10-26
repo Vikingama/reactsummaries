@@ -1,17 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import logger from "redux-logger";
-import thunk from "redux-thunk";
-// import promise from "redux-promise-middleware";
 import App from "./App";
 import Rrx from "./components/Rrx";
 import Rsx from "./components/Rsx";
 import Rtx from "./components/Rtx";
 import Rux from "./components/Rux";
 import User from "./components/User";
-import reducers from "./reducers";
+import configureStore from "./store/configureStore";
 import * as actions from "./actions";
 import * as serviceWorker from "./serviceWorker";
 
@@ -31,7 +27,7 @@ import * as serviceWorker from "./serviceWorker";
         };
 */
 
-const store = createStore(reducers, {}, applyMiddleware(logger, thunk)),
+const store = configureStore(),
     render = () => {
         ReactDOM.render(
             <div>
@@ -70,6 +66,7 @@ const store = createStore(reducers, {}, applyMiddleware(logger, thunk)),
     };
 
 store.subscribe(render);
+
 render();
 
 serviceWorker.unregister();
