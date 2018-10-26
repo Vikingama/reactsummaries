@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
+// import promise from "redux-promise-middleware";
 import App from "./App";
 import Rrx from "./components/Rrx";
 import Rsx from "./components/Rsx";

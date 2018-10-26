@@ -8,8 +8,7 @@ class User extends Component {
         return (
             <div className="container text-center">
                 <h1 className="junbotron-heading text-center">
-                    User|
-                    {user.email}
+                    {user.user.email}
                 </h1>
                 <button
                     className="btn btn-warning my-6"
