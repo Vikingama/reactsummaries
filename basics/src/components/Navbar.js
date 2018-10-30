@@ -1,4 +1,5 @@
 import React from "react";
+// <NavLink> 是 <Link> 的一个特定版本，会在匹配上当前的 url 的时候给已经渲染的元素添加参数...
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
