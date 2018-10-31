@@ -52,7 +52,7 @@ export default class App extends Component {
             hobbies: ["drink", "cook"]
         };
         return (
-            <div className="App">
+            <div>
                 {/* 同级组件通过父级组件进行通信 */}
                 <Title eat={this.state.food} />
                 <hr />
