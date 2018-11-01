@@ -1,15 +1,41 @@
 import React, { Component, PureComponent, Fragment } from "react";
+import PropTypes from "prop-types";
 
 const Lis = () => {
-    return (
-        <Fragment>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </Fragment>
-    );
-};
-
+        return (
+            <Fragment>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </Fragment>
+        );
+    },
+    Topic = () => {
+        return (
+            <div>
+                <Section />
+            </div>
+        );
+    },
+    Section = (props, context) => {
+        console.log(props, context);
+        return <div>{context.color}</div>;
+    },
+    // 高阶组件
+    HighC = Com => {
+        return class Wow extends Component {
+            render() {
+                return (
+                    <div>
+                        <Com {...this.props} />
+                    </div>
+                );
+            }
+        };
+    },
+    DownC = HighC(props => {
+        return <div>{props.name}</div>;
+    });
 class One extends PureComponent {
     // 使用 PureComponent 会在执行渲染函数之前进行数据的浅比较，就不用写 shouldComponentUpdate...
     render() {
@@ -44,6 +70,11 @@ class App extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         return this.state.countTwo === nextState.countTwo ? false : true;
     }
+    getChildContext() {
+        return {
+            color: "1234"
+        };
+    }
     render() {
         console.log("App");
         return (
@@ -54,9 +85,21 @@ class App extends Component {
                 <ul>
                     <Lis />
                 </ul>
+                <hr />
+                <Topic />
+                <hr />
+                <DownC name="12345" />
             </div>
         );
     }
 }
+
+App.childContextTypes = {
+    color: PropTypes.string
+};
+
+Section.contextTypes = {
+    color: PropTypes.string
+};
 
 export default App;
