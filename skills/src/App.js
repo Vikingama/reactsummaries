@@ -1,5 +1,7 @@
 import React, { Component, PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
+import CauseError from "./CauseError";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Lis = () => {
         return (
@@ -80,6 +82,10 @@ class App extends Component {
         return (
             <div>
                 <One one={this.state.countOne} />
+                {/* 不会影响其他组件的渲染 */}
+                <ErrorBoundary>
+                    <CauseError />
+                </ErrorBoundary>
                 <Two two={this.state.countTwo} />
                 <hr />
                 <ul>
