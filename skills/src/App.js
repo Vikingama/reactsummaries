@@ -1,5 +1,6 @@
 import React, { Component, PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import CauseError from "./CauseError";
 import ErrorBoundary from "./ErrorBoundary";
 
@@ -37,7 +38,12 @@ const Lis = () => {
     },
     DownC = HighC(props => {
         return <div>{props.name}</div>;
-    });
+    }),
+    LiStyle = styled.li`
+        color: palevioletred;
+        font-weight: 900;
+    `;
+
 class One extends PureComponent {
     // 使用 PureComponent 会在执行渲染函数之前进行数据的浅比较，就不用写 shouldComponentUpdate...
     render() {
@@ -89,7 +95,9 @@ class App extends Component {
                 <Two two={this.state.countTwo} />
                 <hr />
                 <ul>
-                    <Lis />
+                    <LiStyle>
+                        <Lis />
+                    </LiStyle>
                 </ul>
                 <hr />
                 <Topic />
