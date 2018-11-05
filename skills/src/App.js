@@ -42,6 +42,7 @@ const Lis = () => {
     LiStyle = styled.li`
         color: palevioletred;
         font-weight: 900;
+        list-style: none;
     `;
 
 class One extends PureComponent {
@@ -94,11 +95,11 @@ class App extends Component {
                 </ErrorBoundary>
                 <Two two={this.state.countTwo} />
                 <hr />
-                <ul>
-                    <LiStyle>
+                <LiStyle>
+                    <ul>
                         <Lis />
-                    </LiStyle>
-                </ul>
+                    </ul>
+                </LiStyle>
                 <hr />
                 <Topic />
                 <hr />
