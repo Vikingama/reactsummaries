@@ -39,7 +39,13 @@ const localeMap = {
         return (
             <ThemeContext.Consumer>
                 {context => (
-                    <CDNFlagIcon code={context.state.flag} size={256} />
+                    <CDNFlagIcon
+                        code={context.state.flag}
+                        size={256}
+                        style={{
+                            height: "128px"
+                        }}
+                    />
                 )}
             </ThemeContext.Consumer>
         );
