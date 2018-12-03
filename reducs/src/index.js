@@ -30,37 +30,29 @@ import * as serviceWorker from "./serviceWorker";
 const store = configureStore(),
     render = () => {
         ReactDOM.render(
-            <div>
-                <App
-                    value={store.getState()}
-                    onIncrease={() => {
-                        store.dispatch(actions.increament());
-                    }}
-                    onDecrease={() => {
-                        store.dispatch(actions.decreament());
-                    }}
-                />
-                <hr />
-                <Provider store={store}>
+            <Provider store={store}>
+                <div>
+                    <App
+                        value={store.getState()}
+                        onIncrease={() => {
+                            store.dispatch(actions.increament());
+                        }}
+                        onDecrease={() => {
+                            store.dispatch(actions.decreament());
+                        }}
+                    />
+                    <hr />
                     <Rrx />
-                </Provider>
-                <hr />
-                <Provider store={store}>
+                    <hr />
                     <Rsx />
-                </Provider>
-                <hr />
-                <Provider store={store}>
+                    <hr />
                     <Rtx />
-                </Provider>
-                <hr />
-                <Provider store={store}>
+                    <hr />
                     <Rux />
-                </Provider>
-                <hr />
-                <Provider store={store}>
+                    <hr />
                     <User />
-                </Provider>
-            </div>,
+                </div>
+            </Provider>,
             document.getElementById("root")
         );
     };
