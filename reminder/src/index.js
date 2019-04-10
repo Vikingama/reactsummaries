@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import logger from "redux-logger";
 import App from "./components/App";
 import reducer from "./reducer/reducer";
-import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 
 const store = createStore(reducer, applyMiddleware(logger));

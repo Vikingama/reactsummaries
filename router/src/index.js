@@ -12,7 +12,6 @@ import About from "./components/About";
 import Fzf from "./components/Fzf";
 import Gov from "./components/Gov";
 import Home from "./components/Home";
-import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 
 ReactDOM.render(

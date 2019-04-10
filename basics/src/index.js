@@ -19,7 +19,6 @@ import Navbar from "./components/Navbar";
 import JSPang from "./components/JSPang";
 import Azzept from "./components/Accept";
 import Errorz from "./components/404";
-import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 
 // ReactDOM.render(<App />, document.getElementById("root"));

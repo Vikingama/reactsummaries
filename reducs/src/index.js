@@ -9,7 +9,6 @@ import Rux from "./components/Rux";
 import User from "./components/User";
 import configureStore from "./store/configureStore";
 import * as actions from "./actions";
-import * as serviceWorker from "./serviceWorker";
 
 /*
     const logger = store => next => action => {
